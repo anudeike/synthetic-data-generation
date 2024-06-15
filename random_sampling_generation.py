@@ -69,7 +69,7 @@ def main():
     log(f"Mean squared error: {mse}\nR2 score: {r2} ==> Model score: {model.score(X_test, y_test)}")
 
     # write the evaluations to a file with the parameters of the model 
-    evaluations = pd.DataFrame({'Mean squared error': [mse], 'R2 score': [r2], 'Model score': [model.score(X_test, y_test)]})
+    evaluations = pd.DataFrame({'Mean squared error': [mse], 'R2 score': [r2], 'Model score': f"{np.round(model.score(X_test, y_test) * 100, 2)}%"})
     evaluations.to_csv('linreg_evaluations.csv', index=False)
 
 
